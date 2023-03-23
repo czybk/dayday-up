@@ -1,6 +1,6 @@
 package czy.threads.asynthreads;
 
-import czy.ActivityInfo;
+import czy.bean.ActivityInfo;
 
 import java.util.List;
 

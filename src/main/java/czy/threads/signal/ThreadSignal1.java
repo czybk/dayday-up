@@ -1,11 +1,6 @@
 package czy.threads.signal;
 
 public class ThreadSignal1 extends Thread{
-
-    private String threadName;
-    public ThreadSignal1(String threadName){
-        this.threadName = threadName;
-    }
     @Override
     public void run() {
         System.out.println("I'm running");

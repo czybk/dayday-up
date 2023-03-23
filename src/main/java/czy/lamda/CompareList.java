@@ -1,6 +1,6 @@
-package com.design;
+package czy.lamda;
 
-import czy.ActivityInfo;
+import czy.bean.ActivityInfo;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package czy;
+package czy.bean;
 
 import java.util.Date;
 
