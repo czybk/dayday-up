@@ -1,4 +1,4 @@
-package czy.threads.sync.cyclicBarrier;
+package czy.threads.signal.cyclicBarrier;
 
 import java.util.concurrent.CyclicBarrier;
 
