@@ -1,6 +1,5 @@
 package czy;
 
-import com.design.singleton.*;
 import czy.threads.RunnableTest;
 
 import java.util.concurrent.locks.Lock;
