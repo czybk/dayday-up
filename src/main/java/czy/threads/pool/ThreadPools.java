@@ -9,7 +9,15 @@ public class ThreadPools {
      */
     private void executorServiceTest(){
         //创建固定线程池大小
-        ExecutorService executorService = Executors.newFixedThreadPool(8);
+        ExecutorService executorService1 = Executors.newFixedThreadPool(8);
+
+        ExecutorService INDEXER = Executors.newFixedThreadPool(1, r -> {
+            Thread t = new Thread(r);
+            t.setDaemon(true);
+            t.setUncaughtExceptionHandler((thread, ex) -> ex.printStackTrace());
+            return t;
+        });
+
         /**
          * newWorkStealingPool 是Java8添加的线程池。和别的4种不同，它用的是ForkJoinPool。
          * 使用ForkJoinPool的好处是，把1个任务拆分成多个“小任务”，把这些“小任务”分发到多个线程上执行。这些“小任务”都执行完成后，再将结果合并。
@@ -17,11 +25,17 @@ public class ThreadPools {
          * 当线程发现自己的队列没有任务了，就会到别的线程的队列里获取任务执行。可以简单理解为”窃取“。
          * 一般是自己的本地队列采取LIFO(后进先出)，窃取时采用FIFO(先进先出)，一个从头开始执行，一个从尾部开始执行，由于偷取的动作十分快速，会大量降低这种冲突，也是一种优化方式。
          */
-        ExecutorService executorService1 = Executors.newWorkStealingPool(8);
+        ExecutorService executorService2 = Executors.newWorkStealingPool(8);
+        //默认CPU个数
+        ExecutorService executorService3 = Executors.newWorkStealingPool();
+        ExecutorService executorService4 = Executors.newSingleThreadExecutor();
+        ExecutorService executorService5 = Executors.newSingleThreadExecutor();
+        ExecutorService executorService6 = Executors.newCachedThreadPool();
+
         //计数器（循环次数）
         CountDownLatch countDownLatch = new CountDownLatch(8);
         for(int i=0;i<8;i++){
-            executorService.execute(()->{
+            executorService1.execute(()->{
                 try{
                     //....具体业务
                 } catch(Exception e){

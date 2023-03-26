@@ -1,4 +1,4 @@
-package czy.beanutil;
+package czy.bean;
 
 public class User {
 

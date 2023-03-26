@@ -1,4 +1,4 @@
-package czy.beanutil;
+package czy.bean;
 
 import java.net.MalformedURLException;
 import java.net.URL;
