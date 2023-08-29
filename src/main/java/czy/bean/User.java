@@ -7,9 +7,16 @@ public class User {
     private String username;
     private String password;
     private String gender;
+    private String address;
+
+    private Integer age;
 
     public User(String s) {
         this.username = s;
+    }
+
+    public User() {
+
     }
 
     public int getId() {
@@ -42,5 +49,11 @@ public class User {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public User(String username, String address, Integer age){
+        this.username = username;
+        this.address  = address;
+        this.age = age;
     }
 }

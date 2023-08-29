@@ -2,6 +2,8 @@ package czy.lamda;
 
 import czy.bean.Account;
 
+import java.math.BigDecimal;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -33,6 +35,37 @@ public class ListToMap {
      */
     public Map<String, List<Account>> getMapListByList(List<Account> list){
         return list.stream().collect(Collectors.groupingBy(account ->{return getKey(account);}));
+    }
+
+
+
+    /**
+     * list转Map
+     * @param list
+     * @return
+     */
+    public Map<String, List<String>> getMapListByList1(List<Account> list){
+        return list.stream().collect(Collectors.groupingBy(Account::getUsername, Collectors.mapping(Account::getAccName, Collectors.toList())));
+    }
+
+
+
+    /**
+     * list转Map（List为value）
+     * @param list
+     * @return
+     */
+    public Map<String, List<String>> getMapByList(List<Account> list){
+        return list.stream().collect(Collectors.groupingBy(Account::getUsername, Collectors.mapping(Account::getUsername, Collectors.toList())));
+    }
+
+    /**
+     * 按条件分组
+     * @param list
+     * @return
+     */
+    public Map<Boolean, List<Account>> getPartitionMap(List<Account> list){
+        return list.stream().collect(Collectors.partitioningBy(data-> BigDecimal.valueOf(0.0).compareTo(data.getJe())>0));
     }
 
     private String getKey(Account account){

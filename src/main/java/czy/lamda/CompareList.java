@@ -42,7 +42,7 @@ public class CompareList {
             }});
         }};
         Function<ActivityInfo, String> umDishFunction = umDish -> umDish.getActivityName();
-        List<ActivityInfo> collect1 = list1.stream().filter(distinctByOtherList(list2, umDishFunction, umDishFunction)).collect(Collectors.toList());
+        List<ActivityInfo> collect1 = list1.stream().filter(distinctByOtherList(list2, ActivityInfo::getActivityName, umDishFunction)).collect(Collectors.toList());
         System.out.println(collect1);//setActivityName("111");
     }
 }
