@@ -3,6 +3,7 @@ package czy.lamda;
 import czy.bean.Account;
 import czy.bean.User;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -18,12 +19,8 @@ public class PredicateLamda<T, R, U> {
     }
 
     public static void main(String[] args) {
-        Predicate<Account> accountPredicate = new Predicate<Account>() {
-            @Override
-            public boolean test(Account account) {
-                return false;
-            }
-        };
+        Predicate<Account> accountPredicate = account -> BigDecimal.ONE.equals(account.getJe());
+        Predicate predicate = accountPredicate.negate();
         BiPredicate<Map, User> biPredicate = new BiPredicate<Map, User>() {
             @Override
             public boolean test(Map map, User user) {

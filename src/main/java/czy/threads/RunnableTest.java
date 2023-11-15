@@ -10,4 +10,5 @@ public class RunnableTest implements Runnable{
             System.out.println(Thread.currentThread() + " 's number is:" + (index++));
         }
     }
+
 }

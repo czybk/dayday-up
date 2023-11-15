@@ -3,6 +3,7 @@ package czy;
 import czy.threads.RunnableTest;
 
 import java.util.concurrent.locks.Lock;
+import java.util.function.Function;
 
 public class test {
     public static void main(String[] args) {
@@ -10,6 +11,7 @@ public class test {
         String input ="9999999999999.786";
         boolean isMatch = input.matches(pattern);
         System.out.println(isMatch);
+        Runnable runnable = () -> System.out.println(22);
 //        final RunnableTest runnableTest = new RunnableTest();
 //        Thread thread1 = new Thread(runnableTest,"first window");
 //        // Thread thread2 = new Thread(runnableTest,"second window");
@@ -24,6 +26,7 @@ public class test {
 //        // testMap.put("111","333");
 //        // Object testkey = testMap.put("111","222");
 //        // System.out.println(testkey);
+        Function<String, Integer> stringIntegerFunction = String::length;
     }
 
 }
